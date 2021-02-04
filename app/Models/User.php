@@ -18,9 +18,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        // 'email',
+        // 'password',
         'name',
-        'email',
-        'password',
+        'post_content',
+        'header_image',
+        'footer_image',
+        'bgcolor',
+        'slug',
+
     ];
 
     /**
@@ -29,8 +35,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        // 'password',
+        // 'remember_token',
     ];
 
     /**
@@ -39,7 +45,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        // 'email_verified_at' => 'datetime',
     ];
 
   /**
@@ -53,7 +59,15 @@ class User extends Authenticatable
         'created' => UserCreated::class,
     ];
 
-
+/**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
 
 }
